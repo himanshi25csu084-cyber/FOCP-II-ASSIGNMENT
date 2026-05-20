@@ -1,0 +1,34 @@
+#include <iostream>
+
+bool gcd(int i,int j){
+    int t = ((i>j)?j:i);
+    int flag1=1;
+    for(int k=2;k<=t;k++){
+        if(i%k==0 && j%k==0){
+            return false;
+        }
+    }   
+
+    return true;
+    }
+
+int pairs(int k){
+int z=0;
+for(int i=1;i<=k;i++){
+    for(int j=1;j<=k;j++){
+        if(i*j==k && gcd(i,j))
+        {
+             z++;
+        }
+    }
+}
+return z;
+}
+int main() {
+    int test_case,n;
+    std::cin>>test_case;
+    while(test_case--){
+        std::cin>>n;
+        std::cout<<pairs(n)<<'\n';
+    }
+}
